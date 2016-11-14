@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="JPA_ProjectPU">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>entity.Member</class>
+		<class>entity.Book</class>
+		
+		<!--  define all Hibernate Settings -->
+		
+		<properties>
+		
+		 <!-- Database connection settings -->
+		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://127.0.0.1:5433/myDB"/>
+        <property name="javax.persistence.jdbc.user" value="admin"/>
+        <property name="javax.persistence.jdbc.password" value="12345"/>
+		
+		
+		
+		
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size" value="1"/>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class" value="org.hibernate.cache.internal.NoCacheProvider"/>
+
+        <!-- Echo all executed SQL to stdout -->
+		<property name = "hibernate.show_sql" value = "true" />
+		
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto" value="none"/>
+        
+        </properties>
+		
+	</persistence-unit>
+</persistence>
